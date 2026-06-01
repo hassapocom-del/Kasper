@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "image": "./gallary/shuffle-01.jpg",
+    "alt": "",
+    "title": "Mountain View",
+    "description": "Landscape Photography",
+    "category": "app"
+  },
+  {
+    "id": 2,
+    "image": "./gallary/shuffle-02.jpg",
+    "alt": "",
+    "title": "City Life",
+    "description": "Street Photography",
+    "category": "photo"
+  },
+  {
+    "id": 3,
+    "image": "./gallary/shuffle-03.jpg",
+    "alt": "",
+    "title": "Expressive Portrait",
+    "description": "Portrait Photography",
+    "category": "app"
+  },
+  {
+    "id": 4,
+    "image": "./gallary/shuffle-04.jpg",
+    "alt": "",
+    "title": "Abstract Art",
+    "description": "Creative Photography",
+    "category": "photo"
+  },
+  {
+    "id": 5,
+    "image": "./gallary/shuffle-05.jpg",
+    "alt": "",
+    "title": "Wildlife Moment",
+    "description": "Nature Photography",
+    "category": "web"
+  },
+  {
+    "id": 6,
+    "image": "./gallary/shuffle-06.jpg",
+    "alt": "",
+    "title": "Architectural Lines",
+    "description": "Architectural Photography",
+    "category": "print"
+  },
+  {
+    "id": 7,
+    "image": "./gallary/shuffle-07.jpg",
+    "alt": "",
+    "title": "Ocean Waves",
+    "description": "Seascape Photography",
+    "category": "web"
+  },
+  {
+    "id": 8,
+    "image": "./gallary/shuffle-08.jpg",
+    "alt": "",
+    "title": "Night Lights",
+    "description": "Night Photography",
+    "category": "print"
+  }
+]

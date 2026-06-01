@@ -37,7 +37,7 @@
     <!-- start landing -->
     <div class="landing" id="home">
       <div class="overlay"></div>
-      <div class="text">
+      <div class="text on" data-index="1">
         <div class="content">
           <h2>hello world! we are kasper we make art</h2>
           <p>
@@ -50,15 +50,50 @@
           </p>
         </div>
       </div>
+      <div class="text" data-index="2">
+        <div class="content">
+          <h2>hello world! we are kasper — we craft experiences</h2>
+          <p>
+            At Kasper, we believe design should speak without words. Our
+            approach blends minimalist aesthetics with intuitive functionality,
+            ensuring every interaction feels natural and inspiring. From concept
+            to execution, we focus on creating digital products that tell your
+            story, engage your audience, and stand the test of time. Let’s build
+            something meaningful together.
+          </p>
+        </div>
+      </div>
+      <div class="text" data-index="3">
+        <div class="content">
+          <h2>hello world! we are kasper — we make art purposeful</h2>
+          <p>
+            Art isn’t just about looks — it’s about impact. Kasper transforms
+            everyday tools into expressions of purpose, where beauty meets
+            utility at every touchpoint. Our process is driven by curiosity,
+            fueled by innovation, and grounded in real human needs. Experience
+            the difference when passion meets precision, and let’s reshape what
+            modern craftsmanship can be.
+          </p>
+        </div>
+      </div>
+      <div class="text" data-index="4">
+        <div class="content">
+          <h2>hello world! we are kasper — we engineer elegance</h2>
+          <p>
+            Technology moves fast, but true elegance slows it down. Kasper
+            products are engineered to deliver powerful performance under a
+            calm, refined surface. No noise, no clutter — just smart solutions
+            that adapt to your life. Whether it’s seamless integration or
+            thoughtful details, we turn complexity into clarity, so you can
+            focus on what matters most.
+          </p>
+        </div>
+      </div>
       <div class="controle">
-        <i class="fas fa-angle-left change-background fa-2x"></i>
-        <i class="fas fa-angle-right change-background fa-2x"></i>
+        <i class="fas fa-angle-left change-background fa-2x prev"></i>
+        <i class="fas fa-angle-right change-background fa-2x next"></i>
       </div>
-      <div class="bullets">
-        <span></span>
-        <span class="active"></span>
-        <span></span>
-      </div>
+      <div class="bullets"></div>
     </div>
     <!-- end landing -->
     <!-- start serveices section  -->
@@ -143,72 +178,15 @@
           </p>
         </div>
         <ul class="shuffle">
-          <li class="active">All</li>
-          <li>App</li>
-          <li>Photo</li>
-          <li>Web</li>
-          <li>Print</li>
+          <li class="active" data-category="all">All</li>
+          <li data-category="app">App</li>
+          <li data-category="photo">Photo</li>
+          <li data-category="web">Web</li>
+          <li data-category="print">Print</li>
         </ul>
+        <div class="images-container"></div>
+        <a href="#" class="btn">More</a>
       </div>
-      <div class="images-container">
-        <div class="box">
-          <img src="./gallary/shuffle-01.jpg" alt="" />
-          <div class="caption">
-            <h4>Mountain View</h4>
-            <p>Landscape Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-02.jpg" alt="" />
-          <div class="caption">
-            <h4>City Life</h4>
-            <p>Street Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-03.jpg" alt="" />
-          <div class="caption">
-            <h4>Expressive Portrait</h4>
-            <p>Portrait Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-04.jpg" alt="" />
-          <div class="caption">
-            <h4>Abstract Art</h4>
-            <p>Creative Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-05.jpg" alt="" />
-          <div class="caption">
-            <h4>Wildlife Moment</h4>
-            <p>Nature Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-06.jpg" alt="" />
-          <div class="caption">
-            <h4>Architectural Lines</h4>
-            <p>Architectural Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-07.jpg" alt="" />
-          <div class="caption">
-            <h4>Ocean Waves</h4>
-            <p>Seascape Photography</p>
-          </div>
-        </div>
-        <div class="box">
-          <img src="./gallary/shuffle-08.jpg" alt="" />
-          <div class="caption">
-            <h4>Night Lights</h4>
-            <p>Night Photography</p>
-          </div>
-        </div>
-      </div>
-      <a href="#" class="btn">More</a>
     </div>
     <!-- end portfolio -->
     <!-- start video -->
@@ -446,17 +424,19 @@
       <div class="container">
         <div class="main-heading">
           <h2>Contact Us</h2>
-          <p>We’d love to hear from you! Please reach out via email at 
-          <strong>hassapo.com@gmail.com</strong> or give us a call at <strong>(123) 456-7890</strong>.
+          <p>
+            We’d love to hear from you! Please reach out via email at
+            <strong>hassapo.com@gmail.com</strong> or give us a call at
+            <strong>(123) 456-7890</strong>.
           </p>
         </div>
         <div class="content">
           <form action="">
-            <input type="text" placeholder="Your Name" name="name"/>
+            <input type="text" placeholder="Your Name" name="name" />
             <input type="email" placeholder="Your Email" name="email" />
             <textarea name="massege" placeholder="Your message"></textarea>
-            <span name="subject" class="subject">subject</span>
-          </form>
+            <button name="subject" class="subject">subject</button>
+          </form>          
           <div class="info">
             <h4>Get In Touch</h4>
             <span class="phone">+201013946477</span>
@@ -464,11 +444,11 @@
             <h4 class="address">Where We Are</h4>
             <address>
               Awesome Address 17
-              <br>
+              <br />
               New York, NYC
-              <br>
+              <br />
               123-4567-890
-              <br>
+              <br />
               USA
             </address>
           </div>
@@ -477,49 +457,46 @@
     </div>
     <!-- end contact -->
     <!-- start footer -->
-     <div class="footer">
+    <div class="footer">
       <div class="container">
         <div class="logo">
           <img src="./gallary/logo1.png " alt="logo" />
           <span>Kasper</span>
         </div>
         <h4>We Are Social</h4>
-          <div class="footer-social">
-            <a
-              href="https://www.facebook.com/profile.php?id=100049816650020"
-              target="_blank"
-              class="social-icon"
-              >f</a
-            >
-            <a
-              href="https://www.instagram.com/mhmwdhsbwhmd?igsh=MTluZW8ycmc3aWJndQ=="
-              target="_blank"
-              class="social-icon"
-              >i</a
-            >
-            <a
-              href="https://www.linkedin.com/mwlite/profile/in/mahmoud-ahmed-hassan-0541a13a9"
-              target="_blank"
-              class="social-icon"
-              >li</a
-            >
-            <a
-              href="https://mail.google.com/mail/?view=cm&fs=1&to=hassapo.com@gmail.com"
-              target="_blank"
-              class="social-icon"
-              >g</a
-            >
-          </div>
-          <div class="cobyRight">
-            <p>
-            Has Been Desine by  @ <span >H.M</span> @
-            </p>
-            <p>
-              © 2026 <span>Kasper</span> All Right Reserved
-            </p>
-          </div>
+        <div class="footer-social">
+          <a
+            href="https://www.facebook.com/profile.php?id=100049816650020"
+            target="_blank"
+            class="social-icon"
+            >f</a
+          >
+          <a
+            href="https://www.instagram.com/mhmwdhsbwhmd?igsh=MTluZW8ycmc3aWJndQ=="
+            target="_blank"
+            class="social-icon"
+            >i</a
+          >
+          <a
+            href="https://www.linkedin.com/mwlite/profile/in/mahmoud-ahmed-hassan-0541a13a9"
+            target="_blank"
+            class="social-icon"
+            >li</a
+          >
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=hassapo.com@gmail.com"
+            target="_blank"
+            class="social-icon"
+            >g</a
+          >
+        </div>
+        <div class="cobyRight">
+          <p>Has Been Desine by @ <span>H.M</span> @</p>
+          <p>© 2026 <span>Kasper</span> All Right Reserved</p>
+        </div>
       </div>
-     </div>
+    </div>
     <!-- end footer -->
+    <script src="./js/main.js"></script>
   </body>
 </html>
