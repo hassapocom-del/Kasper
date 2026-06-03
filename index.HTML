@@ -10,92 +10,97 @@
     <link rel="stylesheet" href="./webfonts/fa-solid-900.svg" />
   </head>
   <body>
-    <!-- start header -->
-    <header>
-      <div class="container">
-        <div class="logo">
-          <img src="./gallary/logo1.png " alt="logo" />
-          <span>Kasper</span>
-        </div>
-        <nav>
-          <i class="fas fa-bars toggle-menu"></i>
-          <ul>
-            <li><a class="active" href="#home">home</a></li>
-            <li><a href="#service">service</a></li>
-            <li><a href="#protfolio">protfolio</a></li>
-            <li><a href="#about">about</a></li>
-            <li><a href="#pricing">pricing</a></li>
-            <li><a href="#contact">contact</a></li>
-          </ul>
-          <div class="form">
-            <i class="fas fa-search"></i>
+      <!-- start header -->
+      <header id="header">
+        <div class="container">
+          <div class="logo">
+            <img src="./gallary/logo1.png " alt="logo" />
+            <span>Kasper</span>
           </div>
-        </nav>
-      </div>
-    </header>
-    <!-- end header -->
-    <!-- start landing -->
-    <div class="landing" id="home">
-      <div class="overlay"></div>
-      <div class="text on" data-index="1">
-        <div class="content">
-          <h2>hello world! we are kasper we make art</h2>
-          <p>
-            Welcome to Kasper, where technology meets elegance. We create
-            products that don’t just look good — they work smart. Designed with
-            precision and built for performance, every Kasper product is crafted
-            to simplify your life while inspiring your style. Discover the power
-            of innovation wrapped in minimal design, and experience what it
-            means when excellence becomes effortless.
-          </p>
+          <nav>
+            <i class="fas fa-bars toggle-menu"></i>
+            <ul>
+              <li><a class="active" href="#home">home</a></li>
+              <li><a href="#service">service</a></li>
+              <li><a href="#protfolio">protfolio</a></li>
+              <li><a href="#about">about</a></li>
+              <li><a href="#pricing">pricing</a></li>
+              <li><a href="#contact">contact</a></li>
+            </ul>
+            <div class="form">
+              <i class="fas fa-search" id="search-icon"></i>
+              <div class="search-box">
+                <input type="text" class="search-input" id="search-input" placeholder="what do you want!">
+                <button type="submit" class="search-btn" id="search-btn">search</button>
+              </div>
+            </div>
+          </nav>
         </div>
-      </div>
-      <div class="text" data-index="2">
-        <div class="content">
-          <h2>hello world! we are kasper — we craft experiences</h2>
-          <p>
-            At Kasper, we believe design should speak without words. Our
-            approach blends minimalist aesthetics with intuitive functionality,
-            ensuring every interaction feels natural and inspiring. From concept
-            to execution, we focus on creating digital products that tell your
-            story, engage your audience, and stand the test of time. Let’s build
-            something meaningful together.
-          </p>
+      </header>
+      <!-- end header -->
+      <!-- start landing -->
+      <div class="landing" id="home">
+        <div class="overlay"></div>
+        <div class="text on" data-index="1">
+          <div class="content">
+            <h2>hello world! we are kasper we make art</h2>
+            <p>
+              Welcome to Kasper, where technology meets elegance. We create
+              products that don’t just look good — they work smart. Designed with
+              precision and built for performance, every Kasper product is crafted
+              to simplify your life while inspiring your style. Discover the power
+              of innovation wrapped in minimal design, and experience what it
+              means when excellence becomes effortless.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="text" data-index="3">
-        <div class="content">
-          <h2>hello world! we are kasper — we make art purposeful</h2>
-          <p>
-            Art isn’t just about looks — it’s about impact. Kasper transforms
-            everyday tools into expressions of purpose, where beauty meets
-            utility at every touchpoint. Our process is driven by curiosity,
-            fueled by innovation, and grounded in real human needs. Experience
-            the difference when passion meets precision, and let’s reshape what
-            modern craftsmanship can be.
-          </p>
+        <div class="text" data-index="2">
+          <div class="content">
+            <h2>hello world! we are kasper — we craft experiences</h2>
+            <p>
+              At Kasper, we believe design should speak without words. Our
+              approach blends minimalist aesthetics with intuitive functionality,
+              ensuring every interaction feels natural and inspiring. From concept
+              to execution, we focus on creating digital products that tell your
+              story, engage your audience, and stand the test of time. Let’s build
+              something meaningful together.
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="text" data-index="4">
-        <div class="content">
-          <h2>hello world! we are kasper — we engineer elegance</h2>
-          <p>
-            Technology moves fast, but true elegance slows it down. Kasper
-            products are engineered to deliver powerful performance under a
-            calm, refined surface. No noise, no clutter — just smart solutions
-            that adapt to your life. Whether it’s seamless integration or
-            thoughtful details, we turn complexity into clarity, so you can
-            focus on what matters most.
-          </p>
+        <div class="text" data-index="3">
+          <div class="content">
+            <h2>hello world! we are kasper — we make art purposeful</h2>
+            <p>
+              Art isn’t just about looks — it’s about impact. Kasper transforms
+              everyday tools into expressions of purpose, where beauty meets
+              utility at every touchpoint. Our process is driven by curiosity,
+              fueled by innovation, and grounded in real human needs. Experience
+              the difference when passion meets precision, and let’s reshape what
+              modern craftsmanship can be.
+            </p>
+          </div>
         </div>
+        <div class="text" data-index="4">
+          <div class="content">
+            <h2>hello world! we are kasper — we engineer elegance</h2>
+            <p>
+              Technology moves fast, but true elegance slows it down. Kasper
+              products are engineered to deliver powerful performance under a
+              calm, refined surface. No noise, no clutter — just smart solutions
+              that adapt to your life. Whether it’s seamless integration or
+              thoughtful details, we turn complexity into clarity, so you can
+              focus on what matters most.
+            </p>
+          </div>
+        </div>
+        <div class="controle">
+          <i class="fas fa-angle-left change-background fa-2x prev"></i>
+          <i class="fas fa-angle-right change-background fa-2x next"></i>
+        </div>
+        <div class="bullets"></div>
       </div>
-      <div class="controle">
-        <i class="fas fa-angle-left change-background fa-2x prev"></i>
-        <i class="fas fa-angle-right change-background fa-2x next"></i>
-      </div>
-      <div class="bullets"></div>
+      <!-- end landing -->
     </div>
-    <!-- end landing -->
     <!-- start serveices section  -->
     <div class="services" id="service">
       <div class="container">
@@ -185,7 +190,7 @@
           <li data-category="print">Print</li>
         </ul>
         <div class="images-container"></div>
-        <a href="#" class="btn">More</a>
+        <button class="more-btn" id ="more-btn">More</button>
       </div>
     </div>
     <!-- end portfolio -->

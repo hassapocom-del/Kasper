@@ -16,6 +16,8 @@ html {
 }
 body {
   font-family: "open Sans", sans-serif;
+  /* padding-top: 70px;   تقريبًا ارتفاع الهيدر */
+
 }
 ul {
   list-style: none;
@@ -109,12 +111,26 @@ ul {
 
 /* end components  */
 /* start header */
-header {
-  position: absolute;
+
+/* الهيدر ثابت من البداية */
+#header {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100%;
-  z-index: 2;
+  z-index: 1000;
+  background-color: none;
+  transition:  0.3s ease, box-shadow 0.3s ease;
 }
+
+/* عند إضافة كلاس scrolled نغير الخلفية ونضيف ظل */
+#header.scrolled {
+  background-color: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* تعويض المسافة اللي اختفاها المحتوى بسبب الهيدر الثابت */
+
 header .container {
   display: flex;
   justify-content: space-between;
@@ -160,20 +176,23 @@ header nav ul {
   header nav ul {
     display: none;
   }
-  header .container nav .toggle-menu:hover + ul {
+  
+  /* بدل hover + ul */
+  header nav ul.show {
     display: flex;
     position: absolute;
     flex-direction: column;
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: rgb(0 0 0/50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
   }
+  
   header nav ul li a {
     padding: 15px !important;
   }
 }
-
 header nav ul li a {
   padding: 40px 20px;
   display: block;
@@ -188,7 +207,7 @@ header nav ul li a.active,
 header nav ul li a:hover {
   color: var(--main-color);
   border-bottom: 1px solid var(--main-color);
-  z-index: 2;
+  z-index: 6;
 }
 
 header nav .form {
@@ -208,6 +227,36 @@ header nav .form i {
   width: 40px;
   height: 25px;
   padding: 3px 5px;
+  cursor: pointer;
+}
+.search-box {
+  position: relative;
+  display: none;
+}
+.search-box.active {
+  display: block;
+}
+.search-input {
+  padding: 5px 10px;
+  position: absolute;
+  bottom: -75px;
+  border-radius: 5px;
+  right: 10px;
+}
+.search-btn {
+  position: absolute;
+  bottom: -105px;
+  right: 10px;
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+@media (max-width:768px) {
+
+
 }
 /* end header */
 /* start landing */
@@ -217,7 +266,7 @@ header nav .form i {
   background-size: cover;
   position: relative;
 }
-.landing .overlay {
+.overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -277,7 +326,6 @@ header nav .form i {
 .landing .disabled {
   opacity: 0.5;
   cursor: not-allowed;
-
 }
 .landing .bullets {
   position: absolute;
@@ -291,6 +339,7 @@ header nav .form i {
   .landing .bullets {
     margin: 0 -50px;
   }
+
 }
 .bullets span {
   border: 2px solid white;
@@ -458,6 +507,9 @@ header nav .form i {
   overflow: hidden;
   position: relative;
 }
+.images-container .heddin {
+  display: none;
+}
 .images-container .box img {
   max-width: 100%;
   object-fit: cover;
@@ -487,7 +539,7 @@ header nav .form i {
 .images-container .box .caption p {
   color: var(--main-color);
 }
-.porfolio .btn {
+.porfolio .more-btn {
   background-color: var(--main-color);
   color: white;
   padding: 15px 20px;
@@ -496,6 +548,13 @@ header nav .form i {
   margin: 30px auto;
   text-decoration: none;
   text-transform: uppercase;
+  border-radius: 10px;
+  color: black;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.porfolio .more-btn:hover {
+  color: white
 }
 /* end portfolio  */
 /* start video */

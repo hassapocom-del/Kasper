@@ -1,3 +1,76 @@
+// handle the header background on scroll
+const header = document.getElementById("header"); 
+
+window.addEventListener("scroll", function () {
+    // لما ننزل أكتر من 50px نضيف كلاس scrolled
+    if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+    } else {
+        header.classList.remove("scrolled");
+    }
+});
+
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+        // نحسب ارتفاع الهيدر الحالي بعد ما ثبت (بما إنه fixed)
+        const headerHeight = header.offsetHeight;
+        const targetPosition = section.offsetTop - headerHeight;
+        window.scrollTo({
+            top: targetPosition,
+            behavior: "smooth"
+        });
+    }
+}
+const navLinks = document.querySelectorAll("#header nav li a");
+const toggleMenu = document.querySelector("#header .toggle-menu");
+const navUl = document.querySelector("#header nav ul");
+
+if (toggleMenu && navUl) {
+  toggleMenu.addEventListener("click", function (e) {
+    e.stopPropagation(); // نمنع انتشار الحدث
+    navUl.classList.toggle("show");
+  });
+  // إغلاق القائمة عند الضغط على أي رابط داخل القائمة
+  navUl.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navUl.classList.remove("show");
+    });
+  });
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener("click", function (e) {
+    if (!toggleMenu.contains(e.target) && !navUl.contains(e.target)) {
+      navUl.classList.remove("show");
+    }
+  });
+}
+navLinks.forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    // 1. إزالة كلاس active من جميع الروابط
+    navLinks.forEach(l => l.classList.remove("active"));
+    // 2. إضافة كلاس active للرابط اللي تم الضغط عليه
+    this.classList.add("active");
+    // 3. استخراج id القسم والتمرير إليه
+    const sectionId = this.getAttribute("href").substring(1);
+    scrollToSection(sectionId);
+  });
+});
+// handle search box
+const searchIcon = document.querySelector("#search-icon");
+const searchBox = document.querySelector(".search-box");
+const searchInput = document.querySelector(".search-input");
+const searchBtn = document.querySelector(".search-btn");
+searchIcon.addEventListener("click", function () {
+    searchBox.classList.toggle("active");
+    if (searchBox.classList.contains("active")) {
+      searchInput.value = "";
+      searchInput.focus();
+    }
+    searchBtn.onclick = function () {
+      searchBox.classList.remove("active");
+    };
+});
 // transition between the landing texts (make all landing text arrays, then add on class to the current one, and remove from the others)
 var landingTexts = Array.from(document.querySelectorAll(".landing .text"));
 var textcounter = landingTexts.length;
@@ -84,15 +157,13 @@ fetch("js/images.json")
   .then(response => response.json())
   .then(data => {
     images = data;
-    renderImages("all"); // عرض كل الصور أول مرة
-    initTabs();          // ربط الأحداث مرة واحدة
+    renderImages("all"); 
+    initTabs();         
   })
   .catch(error => console.error("Error fetching images:", error));
-
-// دالة عرض الصور فقط
 function renderImages(category = "all") {
   const imagesContainer = document.querySelector(".images-container");
-  if (!imagesContainer) return; // حماية لو العنصر مش موجود
+  if (!imagesContainer) return;
 
   imagesContainer.innerHTML = "";
 
@@ -102,7 +173,12 @@ function renderImages(category = "all") {
 
   filtered.forEach(image => {
     const box = document.createElement("div");
+    // 1. نضيف كلاس "box" الأساسي أول حاجة
     box.className = "box";
+    // 2. لو هنعرض الكل والـ id أكبر من 2 نضيف كلاس الإخفاء
+    if (category === "all" && image.id > 2) {
+      box.classList.add("heddin");   // أو "hidden" لو اسم الكلاس عندك كده
+    }
     box.setAttribute("data-category", image.category);
     box.innerHTML = `
       <img src="${image.image}" alt="${image.alt}" />
@@ -118,16 +194,24 @@ function renderImages(category = "all") {
 function initTabs() {
   const categoryTabs = document.querySelectorAll(".shuffle li");
   if (categoryTabs.length === 0) return;
-
   categoryTabs.forEach(tab => {
     tab.addEventListener("click", function () {
       // إزالة الكلاس "active" من كل التبويبات
       categoryTabs.forEach(t => t.classList.remove("active"));
       // إضافته للتاب المضغوط
       this.classList.add("active");
-
     //   const category = .getAttribute("data-category");
       renderImages(this.dataset.category); 
     });
+  });
+}
+
+const moreBtn = document.querySelector(".more-btn");
+if (moreBtn) {
+  moreBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    const hiddenBoxes = document.querySelectorAll(".images-container .box");
+    hiddenBoxes.forEach(box => box.classList.toggle("heddin"));
+    
   });
 }
