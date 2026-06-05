@@ -153,19 +153,8 @@ header nav {
   align-items: center;
   justify-content: flex-end;
 }
-header .container nav .toggle-menu {
-  font-size: 22px;
-  color: white;
-  position: relative;
-  font-size: 20px;
-  align-content: center;
-  background-color: aqua;
-  border-radius: 5px;
-  width: 40px;
-  height: 25px;
-}
 @media (min-width: 768px) {
-  header .container nav .toggle-menu {
+  header .container nav .menu-icon {
     display: none;
   }
 }
@@ -210,25 +199,49 @@ header nav ul li a:hover {
   z-index: 6;
 }
 
-header nav .form {
-  width: 60px;
-  height: 30px;
-  position: relative;
-  margin-left: 30px;
-  border-left: 1px solid white;
+
+nav audio {
+  display: none;
 }
-header nav .form i {
+.icons{
+  position: relative;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.icons i {
   color: white;
   position: relative;
-  font-size: 20px;
+  font-size: 18px;
   align-content: center;
   background-color: aqua;
   border-radius: 5px;
-  width: 40px;
-  height: 25px;
-  padding: 3px 5px;
-  cursor: pointer;
+  padding: 10px 10px;
+  cursor: pointer;  
 }
+
+.icons i:not(:last-child)::after {
+  content: " | ";
+  position: absolute;
+  top: 6%;
+  transform: translateX(18px);
+  color: white;
+  font-size: 30px;
+}
+.volume-icon span{
+  display: none;
+}
+.volume-icon .mute{
+  display: block;
+  position: absolute;
+  color: red;
+  font-size: 30px;
+  left: 16px;
+  top: 2px;
+  height: 100%;
+  rotate: 22deg;
+}
+
 .search-box {
   position: relative;
   display: none;
@@ -238,14 +251,15 @@ header nav .form i {
 }
 .search-input {
   padding: 5px 10px;
-  position: absolute;
-  bottom: -75px;
-  border-radius: 5px;
-  right: 10px;
+    position: absolute;
+    top: 65px;
+    border-radius: 5px;
+    right: 10px;
+    outline: none;
 }
 .search-btn {
   position: absolute;
-  bottom: -105px;
+  top: 100px;
   right: 10px;
   background-color: var(--main-color);
   color: white;
@@ -576,6 +590,9 @@ header nav .form i {
   height: 100%;
   background-color: rgb(0 0 0 / 40%);
 }
+.video.show::before{
+display: none;
+}
 .video .text {
   position: absolute;
   top: 50%;
@@ -587,6 +604,9 @@ header nav .form i {
   color: white;
   border-radius: 10px;
 }
+.video .text.hidden {
+  display: none;
+}
 .video .text h2 {
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -595,15 +615,26 @@ header nav .form i {
 .video .text p {
   margin-bottom: 30px;
 }
-.video .text button {
+.video .see-more {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 70%);
   background-color: black;
   color: white;
   text-transform: uppercase;
   padding: 15px 20px;
   cursor: pointer;
   border: none;
+  border-radius: 5px;
+  z-index: 5;
+}
+.video .see-more.on {
+  top: 98%;
+  background-color: var(--main-color);
 }
 .about-us {
+  margin-top: 40px;
   padding-bottom: var(--section-padding);
   padding-top: var(--section-padding);
   overflow: hidden;
@@ -832,6 +863,7 @@ header nav .form i {
   padding-top: var(--section-padding);
 }
 .pricing .plans-box {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 30px;
@@ -884,9 +916,10 @@ header nav .form i {
   width: 50%;
   margin-left: 25%;
 }
-.plans-box .buy a {
+.plans-box .buy .buy-btn {
   border-radius: 10px;
-  color: black;
+  color: white;
+  background-color: #ccc;
   transition: 0.4s;
   display: block;
   padding: 20px 20px;
@@ -894,9 +927,9 @@ header nav .form i {
   border: 1px solid var(--main-color);
   width: fit-content;
   margin: 30px auto;
+  cursor: pointer;
 }
-.plans-box .buy a:hover {
-  color: white;
+.plans-box .buy .buy-btn:hover {
   background-color: var(--main-color);
 }
 .pricing p {
@@ -920,7 +953,87 @@ header nav .form i {
 .pricing .btn:hover {
   color: white;
 }
-/* end pricing */
+
+.pricing .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.pricing .overlay.active {
+  visibility: visible;
+  opacity: 1;
+}
+.pay-model {
+  background: #fffef9;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 1.8rem;
+  padding: 1.5rem;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+}
+.pricing .overlay.active .pay-model {
+  transform: scale(1);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f2dfce;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: black;
+  transition: 0.2s;
+}
+.close-modal:hover {
+  transform: rotate(90deg);
+}
+
+.payment-form-group {
+  margin-bottom: 15px;
+}
+.payment-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+.payment-form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.confirm-booking {
+  background:var(--main-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 15px;
+}
+/* payment */
 /* start subscribe */
 .subscribe {
   padding-bottom: var(--section-padding);
@@ -995,6 +1108,7 @@ header nav .form i {
     flex-wrap: wrap;
   }
 }
+
 /* end subscribe */
 /* start contact */
 .contact {

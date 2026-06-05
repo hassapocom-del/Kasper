@@ -1,0 +1,54 @@
+
+   [
+    {"id": 1,
+      "name": "Basic",
+      "price": 19,
+      "features": [
+        "Feature no 1",
+        "Extra Feature",
+        "Extra Feature no 2",
+        "Feature"
+      ],
+      "buttonText": "Buy Now",
+      "buttonLink": "1"
+    },
+    {
+      "id": 2,
+      "name": "Premium",
+      "price": 29,
+      "features": [
+        "Feature no 1",
+        "Extra Feature",
+        "Extra Feature no 2",
+        "Feature"
+      ],
+      "buttonText": "Buy Now",
+      "buttonLink": "2"
+    },
+    {
+      "id": 3,
+      "name": "Pro",
+      "price": 39,
+      "features": [
+        "Feature no 1",
+        "Extra Feature",
+        "Extra Feature no 2",
+        "Feature"
+      ],
+      "buttonText": "Buy Now",
+      "buttonLink": "3"
+    },
+    {
+      "id": 4,
+      "name": "Platinum",
+      "price": 49,
+      "features": [
+        "Feature no 1",
+        "Extra Feature",
+        "Extra Feature no 2",
+        "Feature"
+      ],
+      "buttonText": "Buy Now",
+      "buttonLink": "4"
+    }
+  ]
